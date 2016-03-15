@@ -15,8 +15,8 @@ Mostly simple app runners shortcuts, with couple of gems:
 
 ## Installation ##
 
-To install it, just clone this repo somewhere and then link ```init.lua``` to
-```~/.hammerspoon```
+To install it, just clone this repo somewhere and then link `init.lua` to
+`~/.hammerspoon`
 
 ## TODO: ##
 
