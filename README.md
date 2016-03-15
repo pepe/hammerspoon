@@ -11,7 +11,7 @@ Mostly simple app runners shortcuts, with couple of gems:
 - Search highlited in new Safari tab, or add it to OmniFocus
 - Tea timer with notification
 - Get to first pinned page in Safari (Mixcloud for me)
--- Pause/Unpause Mixcloud and get back to my app
+  - Pause/Unpause Mixcloud and get back to my app
 
 ## Installation ##
 
