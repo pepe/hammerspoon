@@ -34,11 +34,30 @@ hs.hotkey.bind({"ctrl", "alt"}, "L", function()
     hs.application.launchOrFocus("Slack")
 end)
 
+-- Run Dicitonary
+hs.hotkey.bind({"ctrl", "alt"}, "D", function()
+    hs.application.launchOrFocus("Dictionary")
+end)
+
 -- Run Messages
 hs.hotkey.bind({"ctrl", "alt"}, "Z", function()
     hs.application.launchOrFocus("Messages")
 end)
 
+-- Run Finder
+hs.hotkey.bind({"ctrl", "alt"}, "F", function()
+    hs.application.launchOrFocus("Messages")
+end)
+
+-- Quit Slack, then run it after 30 minutes
+hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "L", function()
+    hs.alert.show(" No Slacking", 0.5)
+    hs.application.find("Slack"):kill()
+    hs.timer.doAfter(1800, function()
+                       hs.application.launchOrFocus("Slack")
+                       hs.alert.show(" Slacking", 0.5)
+    end)
+end)
 
 --- Actions
 -- Helper for pasting
@@ -92,11 +111,12 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, "M", function()
     hs.eventtap.keyStroke({"cmd"}, "+")
 end)
 
--- Pause/Unpause Mixcloud page
+-- Pause/Unpause Mixcloud page and get back
 hs.hotkey.bind({"ctrl", "alt", "cmd", "shift"}, "M", function()
     hs.application.launchOrFocus("Safari")
     hs.eventtap.keyStroke({"cmd"}, "+")
     hs.eventtap.keyStroke({""}, "space")
+    hs.eventtap.keyStroke({"cmd"}, "tab")
 end)
 
 -- Config reloading
