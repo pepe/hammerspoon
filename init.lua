@@ -46,7 +46,7 @@ end)
 
 -- Run Finder
 hs.hotkey.bind({"ctrl", "alt"}, "F", function()
-    hs.application.launchOrFocus("Messages")
+    hs.application.launchOrFocus("Finder")
 end)
 
 -- Quit Slack, then run it after 30 minutes
@@ -98,10 +98,24 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, "L", function()
     hs.caffeinate.lockScreen()
 end)
 
--- Tea notification
+-- Tea notifications
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "C", function()
     hs.alert.show(" tea", 0.5)
-    hs.timer.doAfter(120, function() hs.notify.new({title="Zen", informativeText="~~~ tea is ready ~~~"}):send()
+    hs.timer.doAfter(120,
+                     function()
+                       hs.notify.new({title="Zen",
+                                      informativeText="~~~ tea is ready ~~~",
+                                      autoWithdraw=false}):send()
+    end)
+end)
+
+hs.hotkey.bind({"shift", "ctrl", "alt", "cmd"}, "C", function()
+    hs.alert.show(" short tea", 0.5)
+    hs.timer.doAfter(60,
+                     function()
+                       hs.notify.new({title="Zen",
+                                      informativeText="~~~ tea is ready ~~~",
+                                      autoWithdraw=false}):send()
     end)
 end)
 
@@ -137,7 +151,7 @@ hs.alert.show("Config loaded")
 -- Search type
 -- TODO finish for Google clojure docs
 function searchChooser()
-  local query 
+  local query
   local choices = {
     {
       ["text"] = "First Choice",
